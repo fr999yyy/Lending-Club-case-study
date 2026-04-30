@@ -1,19 +1,3 @@
----
-
----
-- [ ] Dashboard
-	- [ ] 
-- [ ] ﻿﻿﻿Background and Overview
-	- [ ]  tech details
-- [ ] ﻿﻿﻿Data Structure Overview
-	- [ ] ERD?
-- [ ] Executive Summary
-- [x] Insights Deep Dive
-	- [ ] quantified value
-	- [ ] business metric
-	- [ ] simple story about a historical trend
-- [ ] ﻿﻿﻿Recommendations
-----
 # Client Background 背景概覽
 Lending Club 是美國 P2P 網路借貸的先驅，直接連接個人及機構投資者與尋求無擔保個人貸款的借款人，過自建演算法與導入 FICO 信用評分系統，期望透過創新來改革消費信貸市場，並取代傳統銀行的信貸業務。
 
@@ -38,7 +22,7 @@ Lending Club 是美國 P2P 網路借貸的先驅，直接連接個人及機構�
 
 ## 平台永續性：利率、年化報酬率與壞帳率
 
-![[Pasted image 20260430150310.png]]
+![platform_sustainability](/assets/platform_sustainability.png)
 
 **觀察結果**：數據顯示從 2013 年開始，貸款人的實質年利率（APR）與名義貸款利率（Nominal Interest Rate）之間的利差隨時間擴大，然而違約率僅有小幅增加，顯示違約頻率並非貸款人報酬率下降的唯一成因。
 ### 可能成因 1：壞帳率上升
@@ -51,7 +35,7 @@ Lending Club 是美國 P2P 網路借貸的先驅，直接連接個人及機構�
 例如：若 A 級借款人在 2018 年加速提前還款（可能受其他管道轉貸利率下降所影響），貸款人的收益將在最高品質的客群中下降。
 - **後續行動：** 檢視各評等隨時間變化的提前還款率。若 2018 年提前還款量激增，將支持此項假設。
 ## 客戶分層
-![[Pasted image 20260430162435.png]]
+![purpose_scatter_plot.png](assets/purpose_scatter.png)
 
 在所有貸款用途中，房貸、假期、婚貸與其他信貸都是實際風險相對低且高報酬的。另一方面，卡債貸款、車貸的 APR 中位數也是在各個用途中表現最差的。學貸則是同時擁有最高的平均違約率以及較低的回報率。
 ### 1. 婚禮信貸：利潤最高的信貸類別
@@ -68,15 +52,16 @@ Lending Club 是美國 P2P 網路借貸的先驅，直接連接個人及機構�
 ## 市場滲透率：猶他州作為潛在的新興市場
 ### 指標與篩選邏輯
 為了找出 Lending Club 目前開發不足的區域市場，我們同時採用兩項條件進行篩選：**平均貸款金額**高於全美各州的前 25%，且**人均貸款件數**低於全美各州的前 25%。此組合旨在找出那些「存在貸款需求（以單筆金額為指標），但整體滲透率仍然較低」的市場。猶他州是唯一符合這兩項條件的州，並且在接下來初步檢驗這個
-![[Loan Analysis by State (2018) (1).png]]
+![Loan Analysis by State (2018)](/assets/Loan_Analysis_by_State_2018.png)
+
 ### 核心假設
 我們需要先透過驗證以下假設，才能確認是猶他州是否實際上仍有開發機會。換句話說，即是確認高平均貸款金額反映的是「真實的高品質借款需求」，而非選擇偏誤所帶來的結果。若 Lending Club 在猶他州的品牌認知度較低，可能只有需求極高而去刻意找尋借款管道的借款人會接觸到 Lending Club 並完成申請流程，因而拉高平均貸款金額，而無法代表廣泛的基礎需求。
 
 #### 假設一：貸款等級組成
-![[Loan Grade Distribution_ Utah vs. Overall (1).png]]
+![Loan Grade Distribution_ Utah vs. Overall](/assets/Loan_Grade_Dist_Utah_Overall.png)
 猶他州的貸款評等分布與全美平均水準高度一致，因此我們可以排除「猶他州平均貸款金額較高是由於 A/B 級高收入借款人比例過高」的可能性。
 #### 假設二：貸款用途組成
-![[Loan Purpose_ Utah vs. Overall National Average (1).png]]
+![Loan Purpose_ Utah vs. Overall National Average](/assets/Loan_Purpose_Utah_National_Average.png)
 猶他州的貸款用途細分同樣與全國用途分布並無明顯差異，因此我們可以排除「猶他州借款人因借貸習性不同，而在特定事件上有較高資金需求」的解釋。猶他州的借款動機與其他地區基本相同。
 ### 結論
 上述兩項驗證可以得到一致的結論：從需求端而言，**猶他州借款人在信用素質或貸款用途上與全國人口並無特定差異，但接觸到 Lending Club 的人數卻遠低於平均。**
